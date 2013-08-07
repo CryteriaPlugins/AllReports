@@ -1,0 +1,50 @@
+package com.aim.crazyjaylen.plugins.AllReports;
+
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class AllReports extends JavaPlugin{
+  public String version = "1.0";
+			
+	public void onEnable(){
+		        getLogger().info("AllReports has just been enabled.");
+                makeConfig();
+		        
+		        getConfig().options().copyDefaults(true);
+		        saveConfig();
+	}
+	
+	public void ondisable() {
+		getLogger().info("AllReports has just been disabled.");
+		
+	}
+	
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if (cmd.getName().equalsIgnoreCase("ar")){ 
+    		int cooldown = getConfig().getInt("cooldown-seconds");
+    		if (args.length > 0){
+		        if (args[0].equals("reload") && sender.hasPermission("ar.reload")) {
+		        	     reload(sender);
+		        }else if(args[0].equals("about")){
+		        	about(sender);
+		        }else if(args[0].equals("report") && sender.hasPermission("ar.report")){
+    				if (args.length > 1){
+		        }
+    				private void report(CommandSender sender, String msg){
+    					addMessage(msg);
+    					reloadConfig();
+    					saveConfig();
+    					sender.sendMessage("§4§lMessage sent!");
+    					getLogger().info("Player "+sender.getName()+" added '"+msg+"' to AllReports messages!");
+    				}
+    				
+    				private void about(CommandSender sender) {
+    					sender.sendMessage("§4§lAbout AllReports");
+    					sender.sendMessage("§4§lAllReports Version 1.0.0");
+    					sender.sendMessage("§cThis plugin was made for the usage of staff members on any server having troubles with mischievious players.")
+    				}
+		         }
+		}
+	}
