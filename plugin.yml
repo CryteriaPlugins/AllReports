@@ -1,0 +1,46 @@
+name: AllReports
+
+description: Report all things to any staff member.
+
+main: com.aim.crazyjaylen.allreports.AllReports
+
+author: Cryteria
+
+prefix: §4§lAllReports
+
+version: 1.0.0
+
+commands:
+   ar:
+     description: See what this plugin is about.
+     usage: /ar
+   ar report:
+     description: Tell a staff member a message.
+     usage: '/ar report <message>'
+   ar reload:
+     description: Reload the plugin.
+     usage: /ar reload
+   ar about:
+     description: View what this plugin is about.
+     usage: /ar about
+
+permissions:
+   ar.*:
+      description: Commands of AllReports.
+      children:
+        ar.use: true
+        ar.reload: false
+        ar.report: true
+        ar.about: true
+   ar.use:
+     description: allows player to use /ar command
+     default: true
+   ar.report:
+     description: allows player to send messages to staff.
+     default: true
+   ar.reload: 
+     description: allows staff member to reload plugin.
+     default: false
+   ar.about:
+     description: allows player to view what plugin is about.
+     default: true
